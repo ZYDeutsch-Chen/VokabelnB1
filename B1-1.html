@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>德语常用介词宾语-1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+            padding: 15px;
+            min-height: 100vh;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px 0;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+        
+        /* 快速导航按钮 */
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin: 15px 0 20px;
+            padding: 0 5px;
+        }
+        
+        .nav-btn {
+            padding: 8px 12px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 0.85rem;
+            flex: 1;
+            min-width: 100px;
+            max-width: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .nav-btn i {
+            font-size: 0.9em;
+        }
+        
+        .nav-btn.active {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            transform: scale(1.05);
+        }
+        
+        /* 卡片容器 */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+            padding-bottom: 30px;
+        }
+        
+        .card {
+            height: 290px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 16px;
+        }
+        
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-front {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border: 1px solid #e0e0e0;
+            justify-content: space-between;
+        }
+        
+        .card-back {
+            background: linear-gradient(145deg, #2c3e50, #34495e);
+            color: white;
+            transform: rotateY(180deg);
+            position: relative;
+            height: 100%;
+        }
+        
+        .verb-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .verb-name {
+            font-size: 1.76rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .speak-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .speak-btn:hover {
+            background: #2980b9;
+            transform: scale(1.1);
+        }
+        
+        .verb-forms {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .form-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #7f8c8d;
+            min-width: 70px;
+        }
+        
+        .form-value {
+            font-weight: 500;
+            color: #2c3e50;
+            text-align: right;
+            flex: 1;
+            font-size: 1.1rem;
+        }
+        
+        .form-value.regular-verb {
+            color: rgba(127, 140, 141, 0.5) !important;
+            font-weight: normal;
+        }
+        
+        .verb-example {
+            background: rgba(236, 240, 241, 0.6);
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 1.09rem;
+            line-height: 1.4;
+            color: #34495e;
+            border-left: 3px solid #3498db;
+        }
+        
+        /* 卡片背面样式 */
+        .valence {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 98%;
+            margin: 15px auto 0;
+        }
+        
+        .meaning {
+            font-size: 1.32rem;
+            text-align: center;
+            color: #ecf0f1;
+            font-weight: 600;
+            margin: 20px auto 10px;
+            width: 98%;
+        }
+        
+        .example-translation {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.99rem;
+            line-height: 1.4;
+            border-left: 3px solid #e74c3c;
+            width: 98%;
+            margin: 0 auto 15px;
+        }
+        
+        .card-hint {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #bdc3c7;
+            font-style: italic;
+            width: 98%;
+            margin: 0 auto 10px;
+        }
+        
+        .card-back-content {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .card-back-top {
+            width: 98%;
+            margin: 15px auto 0;
+        }
+        
+        .card-back-bottom {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        /* 标注样式 */
+        .akk-bg {
+            background-color: #27ae60;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        .dat-bg {
+            background-color: #2980b9;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        .reflexive-bg {
+            background-color: #f39c12;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        /* 四格反身代词样式 */
+        .akk-reflexive {
+            background-color: rgba(39, 174, 96, 0.5);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        /* 三格反身代词样式 */
+        .dat-reflexive {
+            background-color: rgba(41, 128, 185, 0.5);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        /* 规则动词样式 */
+        .form-value.regular-verb {
+            color: rgba(127, 140, 141, 0.5) !important;
+            font-weight: normal;
+        }
+        
+        /* 使用sein作为助动词的样式 */
+        .sein-verb::before {
+            content: "ist ";
+        }
+        
+        /* 底部信息 */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        /* 加载状态 */
+        .loader {
+            text-align: center;
+            padding: 30px;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+        
+        /* 统计信息 */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 11.5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            flex: 1;
+            min-width: 128px;
+        }
+        
+        .stat-value {
+            font-size: 1.62rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .stat-label {
+            font-size: 0.69rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>德语常用介词宾语-1</h1>
+        <p>至元德语 | 点击<i class="fas fa-volume-up"></i>发音</p>
+    </div>
+    
+    <!-- 快速导航 -->
+    <div class="quick-nav">
+        <button class="nav-btn" data-category="valence-2"><i class="fas fa-2"></i> 二价动词</button>
+        <button class="nav-btn active" data-category="random"><i class="fas fa-random"></i> 随机排列</button>
+    </div>
+    
+    <!-- 卡片容器 -->
+    <div class="cards-container" id="cards-container">
+        <div class="loader">
+            <i class="fas fa-spinner fa-spin"></i> 正在加载动词卡片...
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p style="font-size: 0.99rem;">常用介词宾语 | 至元德语内部资料</p>
+        <!-- 统计信息 -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">动词总数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">二价动词</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">三价动词</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">四价动词</div>
+            </div>
+        </div>
+        <p style="font-size: 0.99rem;">总计: <span id="total-count">0</span>个动词 | 标注：三格(<span class="dat-bg">Dat</span>) 四格(<span class="akk-bg">Akk</span>)</p>
+    </div>
+    
+    <script>
+        // 动词数据
+        const verbs = [
+{
+                infinitive: "denken", 
+                pres3: "denkt", 
+                pii: "gedacht", 
+                example: "Ich denke oft an meine Familie.", 
+                exampleTranslation: "我经常想念我的家人。",
+                meaning: "想，思考", 
+                valence: "jd. denkt an <span class=\"akk-bg\">Akk</span>"
+            },
+{
+                infinitive: "glauben", 
+                pres3: "glaubt", 
+                pii: "geglaubt", 
+                example: "Er glaubt an Gott.", 
+                exampleTranslation: "他信仰上帝。",
+                meaning: "信任，相信", 
+                valence: "jd. glaubt an <span class=\"akk-bg\">Akk</span>"
+            },
+{
+                infinitive: "warten", 
+                pres3: "wartet", 
+                pii: "gewartet", 
+                example: "Wir warten auf den Bus.", 
+                exampleTranslation: "我们在等公交车。",
+                meaning: "等待", 
+                valence: "jd. wartet auf <span class=\"akk-bg\">Akk</span>"
+            },
+{
+                infinitive: "achten", 
+                pres3: "achtet", 
+                pii: "geachtet", 
+                example: "Achte auf die Verkehrszeichen!", 
+                exampleTranslation: "注意交通标志！", 
+                meaning: "注意", 
+                valence: "jd. achtet auf <span class=\"akk-bg\">Akk</span>"
+            },
+{
+                infinitive: "antworten", 
+                pres3: "antwortet", 
+                pii: "geantwortet", 
+                example: "Sie antwortet auf meine Frage.", 
+                exampleTranslation: "她回答了我的问题。",
+                meaning: "回答", 
+                valence: "jd. antwortet auf <span class=\"akk-bg\">Akk</span>"
+            },
+{
+                infinitive: "reagieren", 
+                pres3: "reagiert", 
+                pii: "reagiert", 
+                example: "Wie reagierst du auf Kritik?", 
+                exampleTranslation: "你对批评有什么反应？",
+                meaning: "反应", 
+                valence: "jd. reagiert auf <span class=\"akk-bg\">Akk</span>"
+            },
+{
+                infinitive: "aufpassen", 
+                pres3: "passt auf", 
+                pii: "aufgepasst", 
+                example: "Pass auf deine Sachen auf!", 
+                exampleTranslation: "看好你的东西！",
+                meaning: "注意", 
+                valence: "jd. passt auf <span class=\"akk-bg\">Akk</span> auf", 
+                category: "all"
+            },
+{
+                infinitive: "ankommen", 
+                pres3: "kommt an", 
+                pii: "angekommen", 
+                example: "Es kommt auf die richtige Antwort an.", 
+                exampleTranslation: "这取决于正确的答案。",
+                meaning: "取决于", 
+                valence: "es kommt auf <span class=\"akk-bg\">Akk</span> an", 
+                category: "all"
+            },
+{
+                infinitive: "erzählen", 
+                pres3: "erzählt", 
+                pii: "erzählt", 
+                example: "Sie erzählt über ihre Reise.", 
+                exampleTranslation: "她讲述她的旅行。",
+                meaning: "讲述", 
+                valence: "jd. erzählt über <span class=\"akk-bg\">Akk</span>", 
+                category: "all"
+            },
+{
+                infinitive: "diskutieren", 
+                pres3: "diskutiert", 
+                pii: "diskutiert", 
+                example: "Wir diskutieren über Politik.", 
+                exampleTranslation: "我们讨论政治。",
+                meaning: "讨论", 
+                valence: "jd. diskutiert über <span class=\"akk-bg\">Akk</span>", 
+                category: "all"
+            },
+{
+                infinitive: "reden", 
+                pres3: "redet", 
+                pii: "geredet", 
+                example: "Er redet über seine Arbeit.", 
+                exampleTranslation: "他谈论他的工作。",
+                meaning: "谈论", 
+                valence: "jd. redet über <span class=\"akk-bg\">Akk</span>", 
+                category: "all"
+            },
+{
+                infinitive: "sorgen", 
+                pres3: "sorgt", 
+                pii: "gesorgt", 
+                example: "Eltern sorgen für ihre Kinder.", 
+                exampleTranslation: "父母照顾他们的孩子。",
+                meaning: "关心", 
+                valence: "jd. sorgt für <span class=\"akk-bg\">Akk</span>", 
+                category: "all"
+            },
+{
+                infinitive: "kämpfen", 
+                pres3: "kämpft", 
+                pii: "gekämpft", 
+                example: "Sie kämpfen für ihre Rechte.", 
+                exampleTranslation: "他们为自己的权利而奋斗。",
+                meaning: "奋斗", 
+                valence: "jd. kämpft für <span class=\"akk-bg\">Akk</span>", 
+                category: "all"
+            },
+{
+                infinitive: "protestieren", 
+                pres3: "protestiert", 
+                pii: "protestiert", 
+                example: "Die Menschen protestieren gegen die Entscheidung.", 
+                exampleTranslation: "人们抗议这个决定。",
+                meaning: "抗议", 
+                valence: "jd. protestiert gegen <span class=\"akk-bg\">Akk</span>", 
+                category: "all"
+            },
+{
+                infinitive: "kämpfen", 
+                pres3: "kämpft", 
+                pii: "gekämpft", 
+                example: "Wir kämpfen gegen den Klimawandel.", 
+                exampleTranslation: "我们与气候变化作斗争。",
+                meaning: "斗争", 
+                valence: "jd. kämpft gegen <span class=\"akk-bg\">Akk</span>", 
+                category: "all"
+            },
+{
+                infinitive: "arbeiten", 
+                pres3: "arbeitet", 
+                pii: "gearbeitet", 
+                example: "Er arbeitet an einem neuen Projekt.", 
+                exampleTranslation: "他正在做一个新项目。",
+                meaning: "工作", 
+                valence: "jd. arbeitet an <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            },
+{
+                infinitive: "leiden", 
+                pres3: "leidet", 
+                pii: "gelitten", 
+                example: "Sie leidet an Kopfschmerzen.", 
+                exampleTranslation: "她患有头痛。",
+                meaning: "患病", 
+                valence: "jd. leidet an <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            },
+{
+                infinitive: "sterben", 
+                pres3: "stirbt", 
+                pii: "gestorben", 
+                example: "Viele Menschen sterben an Krebs.", 
+                exampleTranslation: "许多人死于癌症。",
+                meaning: "死于", 
+                valence: "jd. stirbt an <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            },
+{
+                infinitive: "teilnehmen", 
+                pres3: "nimmt teil", 
+                pii: "teilgenommen", 
+                example: "Möchtest du an dem Wettbewerb teilnehmen?", 
+                exampleTranslation: "你想参加比赛吗？",
+                meaning: "参加", 
+                valence: "jd. nimmt an <span class=\"dat-bg\">Dat</span> teil", 
+                category: "all"
+            },
+{
+                infinitive: "vorbeikommen", 
+                pres3: "kommt vorbei", 
+                pii: "vorgekommen", 
+                example: "Kommst du heute an meinem Haus vorbei?", 
+                exampleTranslation: "你今天会经过我家吗？",
+                meaning: "经过", 
+                valence: "jd. kommt an <span class=\"dat-bg\">Dat</span> vorbei", 
+                category: "all"
+            },
+{
+                infinitive: "sprechen", 
+                pres3: "spricht", 
+                pii: "gesprochen", 
+                example: "Ich spreche mit meinem Freund.", 
+                exampleTranslation: "我和我的朋友说话。",
+                meaning: "说话", 
+                valence: "jd. spricht mit <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            },
+{
+                infinitive: "telefonieren", 
+                pres3: "telefoniert", 
+                pii: "telefoniert", 
+                example: "Sie telefoniert mit ihrer Mutter.", 
+                exampleTranslation: "她和她妈妈通电话。",
+                meaning: "通电话", 
+                valence: "jd. telefoniert mit <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            },
+{
+                infinitive: "erzählen", 
+                pres3: "erzählt", 
+                pii: "erzählt", 
+                example: "Er erzählt von seiner Reise.", 
+                exampleTranslation: "他讲述他的旅行。",
+                meaning: "讲述", 
+                valence: "jd. erzählt von <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            },
+{
+                infinitive: "träumen", 
+                pres3: "träumt", 
+                pii: "geträumt", 
+                example: "Ich träume von einem Urlaub am Meer.", 
+                exampleTranslation: "我梦想在海边度假。",
+                meaning: "梦想", 
+                valence: "jd. träumt von <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            },
+{
+                infinitive: "halten", 
+                pres3: "hält", 
+                pii: "gehalten", 
+                example: "Was hältst du von diesem Film?", 
+                exampleTranslation: "你觉得这部电影怎么样？",
+                meaning: "认为", 
+                valence: "jd. hält von <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            },
+{
+                infinitive: "gehören", 
+                pres3: "gehört", 
+                pii: "gehört", 
+                example: "Das Buch gehört zu meinen Lieblingsbüchern.", 
+                exampleTranslation: "这本书是我最喜欢的书之一。",
+                meaning: "属于", 
+                valence: "etw. gehört zu <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            },
+{
+                infinitive: "zählen", 
+                pres3: "zählt", 
+                pii: "gezählt", 
+                example: "Deutsch zählt zu den schwierigen Sprachen.", 
+                exampleTranslation: "德语被认为是难学的语言之一。",
+                meaning: "算作", 
+                valence: "etw. zählt zu <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            },
+{
+                infinitive: "arbeiten", 
+                pres3: "arbeitet", 
+                pii: "gearbeitet", 
+                example: "Sie arbeitet bei einer großen Firma.", 
+                exampleTranslation: "她在一家大公司工作。",
+                meaning: "工作", 
+                valence: "jd. arbeitet bei <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            },
+{
+                infinitive: "anfangen", 
+                pres3: "fängt an", 
+                pii: "angefangen", 
+                example: "Wann fangen wir mit der Arbeit an?", 
+                exampleTranslation: "我们什么时候开始工作？",
+                meaning: "开始", 
+                valence: "jd. fängt mit <span class=\"dat-bg\">Dat</span> an", 
+                category: "all"
+            },
+{
+                infinitive: "aufhören", 
+                pres3: "hört auf", 
+                pii: "aufgehört", 
+                example: "Hör mit dem Rauchen auf!", 
+                exampleTranslation: "停止吸烟！",
+                meaning: "停止", 
+                valence: "jd. hört mit <span class=\"dat-bg\">Dat</span> auf", 
+                category: "all"
+            },
+{
+                infinitive: "bestehen", 
+                pres3: "besteht", 
+                pii: "bestanden", 
+                example: "Das Team besteht aus fünf Personen.", 
+                exampleTranslation: "这个团队由五人组成。",
+                meaning: "由...组成", 
+                valence: "etw. besteht aus <span class=\"dat-bg\">Dat</span>", 
+                category: "all"
+            }
+];
+
+        // 缓存清理后的动词，避免重复计算
+        const cleanedVerbs = new Map();
+
+        // 清理动词中的"sich"部分
+        function cleanInfinitive(infinitive) {
+            if (cleanedVerbs.has(infinitive)) {
+                return cleanedVerbs.get(infinitive);
+            }
+            
+            const cleaned = infinitive.replace(/sich\s+/, '').replace(/\s+sich/, '').trim();
+            cleanedVerbs.set(infinitive, cleaned);
+            return cleaned;
+        }
+
+        // 检查动词是否使用sein作为助动词
+        function isSeinVerb(infinitive) {
+            // 使用sein的常见动词列表
+            const seinVerbs = [
+                'sein', 'werden', 'bleiben', 'sterben', 'kommen', 'gehen', 'laufen', 
+                'fahren', 'fliegen', 'fallen', 'steigen', 'sinken', 'schwimmen', 
+                'liegen', 'stehen', 'sitzen', 'hängen', 'schlüpfen', 'klettern',
+                'aufstehen', 'einschlafen', 'aufwachen', 'eintreten', 'auftreten',
+                'weggehen', 'heimgehen', 'spazierengehen', 'entstehen', 'verschwinden',
+                'erscheinen', 'passieren', 'passieren', 'vorbeikommen', 'nachkommen',
+                'auswandern', 'einreisen', 'verreisen'
+            ];
+            
+            // 移除反身前缀以检查基本动词
+            const stem = cleanInfinitive(infinitive);
+            return seinVerbs.includes(stem);
+        }
+
+        // 检查单三是否与原形词干相同
+        function isRegularPres3(infinitive, pres3) {
+            // 忽略动词原形和单三中的"sich"
+            const cleanInfinitive = infinitive.replace(/sich/g, '').trim();
+            const cleanPres3 = pres3.replace(/sich/g, '').trim();
+            
+            // 如果单三形式与词干完全相同
+            if (cleanPres3 === cleanInfinitive) {
+                return true;
+            }
+            
+            // 提取单三的核心动词词干（忽略可分前缀）
+            let pres3Stem = cleanPres3;
+            
+            // 如果单三形式以"t"结尾，去掉"t"
+            if (pres3Stem.endsWith('t') && pres3Stem !== 'ist' && pres3Stem !== 'hat') {
+                pres3Stem = pres3Stem.slice(0, -1);
+            }
+            // 如果单三形式以"et"结尾，去掉"et"
+            else if (pres3Stem.endsWith('et')) {
+                pres3Stem = pres3Stem.slice(0, -2);
+            }
+            
+            // 忽略可分前缀，只查验核心动词词干是否在动词原形中有包容
+            // 如果单三有两个单词，取第二个单词作为核心词干
+            const pres3Words = pres3Stem.split(' ');
+            if (pres3Words.length > 1) {
+                pres3Stem = pres3Words[1]; // 取第二个字段作为核心词干
+            }
+            
+            // 检查原形中是否包含该核心词干
+            return cleanInfinitive.includes(pres3Stem);
+        }
+
+        // 检查过去分词是否规则
+        function isRegularPII(infinitive, pii) {
+            // 忽略动词原形和过去分词中的"sich"
+            const cleanInfinitive = infinitive.replace(/sich/g, '').trim();
+            let cleanPii = pii.replace(/sich/g, '').trim();
+            
+            // 如果过去分词以"en"结尾，则为不规则动词，无需进一步判断
+            if (cleanPii.endsWith('en')) {
+                return false;
+            }
+            
+            // 提取过去分词的核心动词词干
+            let piiStem = cleanPii;
+            
+            // 如果过去分词以"ge"开头，去掉"ge"前缀
+            if (piiStem.startsWith('ge')) {
+                piiStem = piiStem.substring(2);
+            }
+            
+            // 如果过去分词以"t"结尾，去掉"t"
+            if (piiStem.endsWith('t')) {
+                piiStem = piiStem.slice(0, -1);
+            }
+            // 如果过去分词以"et"结尾，去掉"et"
+            else if (piiStem.endsWith('et')) {
+                piiStem = piiStem.slice(0, -2);
+            }
+            
+            // 检查原形中是否包含该核心词干
+            return cleanInfinitive.includes(piiStem);
+        }
+
+        // 格式化三单形式（处理反身动词）
+        function formatPres3(verb) {
+            // 如果是反身动词且三单包含"sich"，则移除"sich"显示
+            if (verb.infinitive.includes('sich') && verb.pres3.includes('sich')) {
+                // 确保正确移除"sich"，无论它在前面还是后面
+                let result = verb.pres3.replace(/\s+sich$/, '').replace(/^sich\s+/, '');
+                // 处理特殊情况如"sich aufregen" -> "regt sich auf"
+                if (result.includes('sich')) {
+                    result = result.replace(/\s+sich/, '').replace(/sich\s+/, '');
+                }
+                return result;
+            }
+            return verb.pres3;
+        }
+
+        // 判断配价中的sich应该使用什么样式
+        function getReflexiveClass(valence) {
+            // 移除Dat和Akk标注后再检查是否有首字母大写的名词
+            const cleanedValence = valence.replace(/<span class="(dat|akk)-bg">[^<]*<\/span>/g, '');
+            // 检查配价中是否有首字母大写的名词（表示有其他宾语）
+            // 如果有，则sich为三格；否则sich为四格
+            const hasNoun = /[A-Z][a-z]+/.test(cleanedValence.replace(/<[^>]*>/g, ''));
+            return hasNoun ? 'dat-reflexive' : 'akk-reflexive';
+        }
+
+        // 根据价态分类动词
+        function getValenceCategory(verb) {
+            // 计算价态数量（根据valence字段中-bg类和dat-reflexive类的数量加1）
+            const valenceText = verb.valence;
+            
+            // 查找所有-bg类标记的数量
+            const bgCount = (valenceText.match(/<span class="[^"]*-bg">[^<]*<\/span>/g) || []).length;
+            
+            // 查找所有dat-reflexive类标记的数量
+            const datReflexiveCount = (valenceText.match(/<span class="dat-reflexive">[^<]*<\/span>/g) || []).length;
+            
+            // 计算总价态数（-bg类数量 + dat-reflexive类数量，因为dat-reflexive不以-bg结尾）
+            const valenceNumber = bgCount + datReflexiveCount + 1;
+            
+            // 根据价态数返回分类
+            return `valence-${valenceNumber}`;
+        }
+
+        // 更新统计信息
+        function updateStats() {
+            // 动词总数
+            document.getElementById('total-count').textContent = verbs.length;
+            
+            // 计算各类动词数量
+            let valence2Count = 0;
+            let valence3Count = 0;
+            let valence4Count = 0;
+            
+            verbs.forEach(verb => {
+                const category = getValenceCategory(verb);
+                switch (category) {
+                    case 'valence-2':
+                        valence2Count++;
+                        break;
+                    case 'valence-3':
+                        valence3Count++;
+                        break;
+                    case 'valence-4':
+                        valence4Count++;
+                        break;
+                }
+            });
+            
+            // 更新统计显示（按新的顺序：动词总数、二价、三价、四价）
+            document.querySelectorAll('.stat-card')[0].querySelector('.stat-value').textContent = verbs.length;
+            document.querySelectorAll('.stat-card')[1].querySelector('.stat-value').textContent = valence2Count;
+            document.querySelectorAll('.stat-card')[2].querySelector('.stat-value').textContent = valence3Count;
+            document.querySelectorAll('.stat-card')[3].querySelector('.stat-value').textContent = valence4Count;
+        }
+
+        // 渲染词汇卡片
+        function renderVocabularyCards(category = 'random') {
+            const container = document.getElementById('cards-container');
+            container.innerHTML = '';
+            
+            // 根据类别过滤词汇
+            let filteredVerbs = [];
+            if (category === 'random') {
+                // 随机排列所有动词
+                filteredVerbs = [...verbs].sort(() => Math.random() - 0.5);
+            } else {
+                // 根据价态分类过滤
+                filteredVerbs = verbs.filter(item => {
+                    return getValenceCategory(item) === category;
+                });
+            }
+            
+            // 如果不是随机排列，则按照相似性对动词进行排序（先按介词分组，再按是否反身动词分组）
+            if (category !== 'random') {
+                filteredVerbs.sort((a, b) => {
+                    // 提取介词
+                    const prepA = a.valence.match(/(an|auf|über|um|für|gegen|mit|von|zu|bei|aus|vor|nach)/);
+                    const prepB = b.valence.match(/(an|auf|über|um|für|gegen|mit|von|zu|bei|aus|vor|nach)/);
+                    const prepNameA = prepA ? prepA[0] : '';
+                    const prepNameB = prepB ? prepB[0] : '';
+                    
+                    // 如果介词不同，按介词排序
+                    if (prepNameA !== prepNameB) {
+                        return prepNameA.localeCompare(prepNameB);
+                    }
+                    
+                    // 如果介词相同，反身动词排在非反身动词后面
+                    const reflexiveA = a.valence.includes('sich');
+                    const reflexiveB = b.valence.includes('sich');
+                    
+                    if (reflexiveA && !reflexiveB) return 1;
+                    if (!reflexiveA && reflexiveB) return -1;
+                    
+                    // 其他情况保持原有顺序
+                    return 0;
+                });
+            }
+            
+            // 更新统计信息
+            updateStats();
+            
+            if (filteredVerbs.length === 0) {
+                container.innerHTML = `
+                    <div class="loader">
+                        <i class="fas fa-info-circle"></i> 该类别下没有动词
+                    </div>
+                `;
+                return;
+            }
+            
+            // 为每个动词创建卡片
+            filteredVerbs.forEach(verb => {
+                // 处理配价中的sich显示
+                let formattedValence = verb.valence;
+                if (verb.valence.includes('sich')) {
+                    const reflexiveClass = getReflexiveClass(verb.valence);
+                    formattedValence = verb.valence.replace(
+                        /<span class="reflexive-bg">sich<\/span>/g, 
+                        `<span class="${reflexiveClass}">sich</span>`
+                    );
+                }
+                
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="verb-header">
+                                <div class="verb-name">${verb.infinitive}</div>
+                                <button class="speak-btn" onclick="speakWordAndExample('${verb.infinitive}', '${verb.example}', event)">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                            <div class="verb-forms">
+                                <div class="form-item">
+                                    <span class="form-label">单三:</span>
+                                    <span class="form-value ${isRegularPres3(verb.infinitive, verb.pres3) ? 'regular-verb' : ''}">${formatPres3(verb)}</span>
+                                </div>
+                                <div class="form-item">
+                                    <span class="form-label">PII:</span>
+                                    <span class="form-value ${isRegularPII(verb.infinitive, verb.pii) ? 'regular-verb' : ''} ${isSeinVerb(verb.infinitive) ? 'sein-verb' : ''}">${verb.pii}</span>
+                                </div>
+                            </div>
+                            <div class="verb-example">
+                                ${verb.example}
+                            </div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-back-content">
+                                <div class="card-back-top">
+                                    <div class="valence">${formattedValence}</div>
+                                    <div class="meaning">${verb.meaning}</div>
+                                </div>
+                                <div class="card-back-bottom">
+                                    <div class="card-hint"><i class="fas fa-sync-alt"></i> 点击翻转卡片</div>
+                                    <div class="example-translation">${verb.exampleTranslation}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                card.addEventListener('click', function(e) {
+                    // 避免点击发音按钮时翻转卡片
+                    if (!e.target.closest('.speak-btn')) {
+                        this.classList.toggle('flipped');
+                        
+                        // 如果是正面且被点击，朗读单词和中文释义
+                        if (!this.classList.contains('flipped')) {
+                            // 获取当前卡片的数据
+                            const currentVerb = verb.infinitive;
+                            const currentMeaning = verb.meaning;
+                            speakWordAndMeaning(currentVerb, currentMeaning);
+                        }
+                    }
+                });
+                container.appendChild(card);
+            });
+        }
+        
+        // 发音功能 - 朗读单词和例句
+        function speakWordAndExample(word, example, event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            
+            if ('speechSynthesis' in window) {
+                // 停止当前正在播放的语音
+                window.speechSynthesis.cancel();
+                
+                // 获取可用的德语语音
+                const voices = window.speechSynthesis.getVoices();
+                const germanVoice = voices.find(voice => 
+                    voice.lang.startsWith('de') && 
+                    (voice.name.includes('German') || voice.name.includes('Deutsch') || voice.lang === 'de-DE')
+                );
+                
+                // 创建单词朗读
+                const wordUtterance = new SpeechSynthesisUtterance(word);
+                wordUtterance.lang = 'de-DE';
+                wordUtterance.rate = 0.9;
+                wordUtterance.pitch = 1;
+                if (germanVoice) {
+                    wordUtterance.voice = germanVoice;
+                }
+                
+                // 单词朗读完成后朗读例句
+                wordUtterance.onend = function() {
+                    setTimeout(() => {
+                        const exampleUtterance = new SpeechSynthesisUtterance(example);
+                        exampleUtterance.lang = 'de-DE';
+                        exampleUtterance.rate = 0.9;
+                        exampleUtterance.pitch = 1;
+                        if (germanVoice) {
+                            exampleUtterance.voice = germanVoice;
+                        }
+                        window.speechSynthesis.speak(exampleUtterance);
+                    }, 300); // 短暂间隔
+                };
+                
+                // 播放单词朗读
+                window.speechSynthesis.speak(wordUtterance);
+                
+                // 添加动画效果
+                if (event) {
+                    const button = event.target.closest('.speak-btn');
+                    if (button) {
+                        button.innerHTML = '<i class="fas fa-volume-up fa-beat"></i>';
+                        setTimeout(() => {
+                            button.innerHTML = '<i class="fas fa-volume-up"></i>';
+                        }, 1000);
+                    }
+                }
+            } else {
+                alert('抱歉，您的浏览器不支持语音合成功能。');
+            }
+        }
+        
+        // 发音功能 - 朗读单词和中文释义（用于点击卡片时自动朗读）
+        function speakWordAndMeaning(word, meaning) {
+            if ('speechSynthesis' in window) {
+                // 停止当前正在播放的语音
+                window.speechSynthesis.cancel();
+                
+                // 获取可用的语音
+                const voices = window.speechSynthesis.getVoices();
+                const germanVoice = voices.find(voice => 
+                    voice.lang.startsWith('de') && 
+                    (voice.name.includes('German') || voice.name.includes('Deutsch') || voice.lang === 'de-DE')
+                );
+                const chineseVoice = voices.find(voice => 
+                    voice.lang.startsWith('zh') && 
+                    (voice.name.includes('Chinese') || voice.name.includes('中文') || voice.lang.startsWith('zh-'))
+                );
+                
+                // 创建单词朗读
+                const wordUtterance = new SpeechSynthesisUtterance(word);
+                wordUtterance.lang = 'de-DE';
+                wordUtterance.rate = 0.9;
+                wordUtterance.pitch = 1;
+                if (germanVoice) {
+                    wordUtterance.voice = germanVoice;
+                }
+                
+                // 单词朗读完成后朗读中文释义
+                wordUtterance.onend = function() {
+                    setTimeout(() => {
+                        const meaningUtterance = new SpeechSynthesisUtterance(meaning);
+                        meaningUtterance.lang = 'zh-CN';
+                        meaningUtterance.rate = 1;
+                        meaningUtterance.pitch = 1;
+                        if (chineseVoice) {
+                            meaningUtterance.voice = chineseVoice;
+                        }
+                        window.speechSynthesis.speak(meaningUtterance);
+                    }, 300); // 短暂间隔
+                };
+                
+                // 播放单词朗读
+                window.speechSynthesis.speak(wordUtterance);
+            }
+        }
+        
+        // 导航按钮事件监听
+        document.addEventListener('DOMContentLoaded', function() {
+            renderVocabularyCards(); // 初始渲染所有卡片
+            
+            // 添加导航按钮事件监听器
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 更新活动按钮
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 根据选择的类别渲染卡片
+                    const category = this.getAttribute('data-category');
+                    renderVocabularyCards(category);
+                });
+            });
+        });
+        
+        // 禁止右键菜单
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // 禁止键盘快捷键保存网页
+        document.addEventListener('keydown', function(e) {
+            // 禁止Ctrl+S
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                return false;
+            }
+            // 禁止Ctrl+Shift+I (开发者工具)
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+                return false;
+            }
+            // 禁止Ctrl+U (查看源代码)
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+                return false;
+            }
+            // 禁止F12
+            if (e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // 禁止拖拽图片
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+    </script>
+</body>
+</html>
