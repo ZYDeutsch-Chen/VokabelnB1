@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>德语口语高频吞音现象卡片</title>
+    <title>至元德语-德语B1词汇学习中心</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -17,904 +17,352 @@
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
-            padding: 15px;
+            padding: 20px;
             min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 20px;
-            padding: 15px 0;
+            margin-bottom: 30px;
+            padding: 20px 0;
         }
         
         .header h1 {
             color: #2c3e50;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
         
         .header p {
             color: #7f8c8d;
-            font-size: 1rem;
-        }
-        
-        /* 快速导航按钮 */
-        .quick-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-            margin: 15px 0 20px;
-            padding: 0 5px;
-        }
-        
-        .nav-btn {
-            padding: 8px 12px;
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-            color: white;
-            border: none;
-            border-radius: 20px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            font-size: 0.85rem;
-            flex: 1;
-            min-width: 100px;
-            max-width: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-        
-        .nav-btn i {
-            font-size: 0.9em;
-        }
-        
-        .nav-btn.active {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            transform: scale(1.05);
-        }
-        
-        /* 卡片容器 */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-            gap: 15px;
-            margin-top: 10px;
-            padding-bottom: 30px;
-        }
-        
-        .card {
-            height: 290px;
-            perspective: 1000px;
-            cursor: pointer;
-        }
-        
-        .card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border-radius: 16px;
-        }
-        
-        .card.flipped .card-inner {
-            transform: rotateY(180deg);
-        }
-        
-        .card-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 16px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .card-front {
-            background: linear-gradient(145deg, #ffffff, #f8f9fa);
-            border: 1px solid #e0e0e0;
-            justify-content: space-between;
-        }
-        
-        .card-back {
-            background: linear-gradient(145deg, #2c3e50, #34495e);
-            color: white;
-            transform: rotateY(180deg);
-            position: relative;
-            height: 100%;
-        }
-        
-        .elision-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .elision-name {
-            font-size: 1.76rem;
-            font-weight: 700;
-            color: #2c3e50;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .speak-btn {
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .speak-btn:hover {
-            background: #2980b9;
-            transform: scale(1.1);
-        }
-        
-        .elision-info {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 12px;
-        }
-        
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px dashed #e0e0e0;
-        }
-        
-        .info-label {
-            font-weight: 600;
-            color: #7f8c8d;
-            min-width: 70px;
-        }
-        
-        .info-value {
-            font-weight: 500;
-            color: #2c3e50;
-            text-align: right;
-            flex: 1;
-            font-size: 1.1rem;
-        }
-        
-        .elision-example {
-            background: rgba(236, 240, 241, 0.6);
-            padding: 12px;
-            border-radius: 10px;
-            margin-top: 10px;
-            font-size: 1.09rem;
-            line-height: 1.4;
-            color: #34495e;
-            border-left: 3px solid #3498db;
-        }
-        
-        /* 卡片背面样式 */
-        .elision-example-container {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 12px;
-            border-radius: 10px;
-            margin: 15px auto 0;
-            width: 98%;
-        }
-        
-        .elision-highlight {
-            background-color: #e74c3c;
-            color: white;
-            padding: 0 4px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        
-        .phonetic {
-            font-size: 1.32rem;
-            text-align: center;
-            color: #ecf0f1;
-            font-weight: 600;
-            margin: 20px auto 10px;
-            width: 98%;
-            font-family: monospace;
-        }
-        
-        .standard-example {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 0.99rem;
-            line-height: 1.4;
-            border-left: 3px solid #e74c3c;
-            width: 98%;
-            margin: 0 auto 15px;
-        }
-        
-        .card-hint {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #bdc3c7;
-            font-style: italic;
-            width: 98%;
-            margin: 0 auto 10px;
-        }
-        
-        .card-back-content {
-            position: relative;
-            height: 100%;
-            width: 100%;
-        }
-        
-        .card-back-top {
-            width: 98%;
-            margin: 15px auto 0;
-        }
-        
-        .card-back-bottom {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-        
-        /* 饼图容器 */
-        .pie-chart-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .pie-chart-title {
             font-size: 1.2rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .pie-chart {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: conic-gradient(
-                #e74c3c 0% 30%,
-                #3498db 30% 55%,
-                #9b59b6 55% 75%,
-                #2ecc71 75% 90%,
-                #f39c12 90% 97%,
-                #1abc9c 97% 100%
-            );
+            max-width: 800px;
             margin: 0 auto;
         }
         
-        .pie-legend {
+        /* 功能卡片网格 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
+            flex-direction: column;
         }
         
-        .legend-item {
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            text-align: center;
+        }
+        
+        .card-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .card-header i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
             display: flex;
-            align-items: center;
-            font-size: 0.8rem;
+            flex-direction: column;
         }
         
-        .legend-color {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 5px;
+        .card-description {
+            margin-bottom: 20px;
+            color: #34495e;
+            font-size: 1.1rem;
+            line-height: 1.5;
         }
         
-        /* 统计信息 */
-        .stats-container {
+        .card-stats {
             display: flex;
             justify-content: space-around;
-            margin: 20px 0;
-            flex-wrap: wrap;
-            gap: 10px;
+            margin-bottom: 20px;
+            background: rgba(236, 240, 241, 0.6);
+            padding: 12px;
+            border-radius: 10px;
         }
         
-        .stat-card {
-            background: white;
-            border-radius: 10px;
-            padding: 11.5px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        .stat {
             text-align: center;
-            flex: 1;
-            min-width: 128px;
         }
         
         .stat-value {
-            font-size: 1.62rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #3498db;
         }
         
         .stat-label {
-            font-size: 0.69rem;
+            font-size: 0.9rem;
             color: #7f8c8d;
         }
         
+        .card-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            text-decoration: none;
+        }
+        
+        .card-button:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: scale(1.02);
+        }
+        
+        /* 特色区域 */
+        .feature-section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .feature-section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .feature-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .feature-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .feature-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #34495e;
+        }
+        
+        .feature-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .feature-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* 页脚 */
         .footer {
             text-align: center;
-            padding: 20px 0;
+            padding: 30px 0;
             color: #7f8c8d;
-            font-size: 0.9rem;
+            font-size: 1rem;
             background: rgba(255, 255, 255, 0.7);
-            border-radius: 12px;
-            margin-top: 20px;
+            border-radius: 16px;
+            margin-top: 40px;
         }
         
-        /* 加载状态 */
-        .loader {
-            text-align: center;
-            padding: 30px;
-            font-size: 1.2rem;
-            color: #7f8c8d;
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
         }
         
-        /* 标注样式 */
-        .akk-bg {
-            background-color: #27ae60;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-            font-size: 0.9em;
+        .footer-link {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
         
-        .dat-bg {
-            background-color: #2980b9;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-            font-size: 0.9em;
+        .footer-link:hover {
+            color: #e74c3c;
+            text-decoration: underline;
         }
         
-        .reflexive-bg {
-            background-color: #f39c12;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 500;
-            font-size: 0.9em;
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-content {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>德语口语高频吞音现象</h1>
-        <p>至元德语 | 点击<i class="fas fa-volume-up"></i>发音</p>
-    </div>
-    
-    <!-- 快速导航 -->
-    <div class="quick-nav">
-        <button class="nav-btn active" data-category="article"><i class="fas fa-crown"></i> 冠词原因省略</button>
-        <button class="nav-btn" data-category="vowel"><i class="fas fa-cut"></i> 词尾元音脱落</button>
-        <button class="nav-btn" data-category="crossword"><i class="fas fa-link"></i> 跨词合并</button>
-        <button class="nav-btn" data-category="consonant"><i class="fas fa-volume-mute"></i> 塞音弱化</button>
-        <button class="nav-btn" data-category="negation"><i class="fas fa-ban"></i> 否定词弱化</button>
-    </div>
-    
-    <!-- 卡片容器 -->
-    <div class="cards-container" id="cards-container">
-        <div class="loader">
-            <i class="fas fa-spinner fa-spin"></i> 正在加载吞音现象卡片...
+    <div class="container">
+        <div class="header">
+            <h1>至元德语B1词汇学习中心</h1>
+            <p>掌握德语B1级别核心词汇，提升您的德语交流能力。通过互动式学习卡片，高效记忆常用动词、介词搭配和口语表达。</p>
         </div>
-    </div>
-    
-    <!-- 教学优先级饼图 -->
-    <div class="pie-chart-container">
-        <div class="pie-chart-title">德语吞音权重</div>
-        <div class="pie-chart" style="background: conic-gradient(
-            #e74c3c 0% 30%,
-            #3498db 30% 55%,
-            #9b59b6 55% 80%,
-            #2ecc71 80% 95%,
-            #f1c40f  95% 100%
-        );"></div>
-        <div class="pie-legend">
-            <div class="legend-item"><span class="legend-color" style="background-color: #e74c3c;"></span>冠词省略 (30%)</div>
-            <div class="legend-item"><span class="legend-color" style="background-color: #3498db;"></span>词尾元音脱落 (25%)</div>
-            <div class="legend-item"><span class="legend-color" style="background-color: #9b59b6;"></span>跨词合并 (25%)</div>
-            <div class="legend-item"><span class="legend-color" style="background-color: #2ecc71;"></span>塞音弱化 (15%)</div>
-            <div class="legend-item"><span class="legend-color" style="background-color: #f1c40f;"></span>否定词弱化 (5%)</div>
-        </div>
-    </div>
-    
-    <div class="footer">
-        <p style="font-size: 0.99rem;">高频吞音现象 | 至元德语内部资料</p>
-        <!-- 统计信息 -->
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-value">91.3%</div>
-                <div class="stat-label">冠词省略率</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">89.2%</div>
-                <div class="stat-label">元音脱落率</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">85.7%</div>
-                <div class="stat-label">跨词合并率</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">80.1%</div>
-                <div class="stat-label">塞音弱化率</div>
-            </div>
-        </div>
-        <p style="font-size: 0.99rem;">数据来源：DGD语料库分析 (2023)</p>
-    </div>
-    
-    <script>
-        // 吞音现象数据
-        const elisionData = [
-            // 冠词省略组
-            {
-                category: "冠词省略",
-                type: "article",
-                elisionForm: "'n",
-                standardForm: "ein",
-                frequency: "91.3%",
-                example: "Das ist ein Kursbuch.",
-                elisionExample: "Das ist <span class='elision-highlight'>'n</span> Kursbuch.",
-                phonetic: "[das ɪst <span class='elision-highlight'>n̩</span> ˈkuːʁsbuːx]",
-                teachingTip: "中性名词前ein弱化为'n"
-            },
-            {
-                category: "冠词省略",
-                type: "article",
-                elisionForm: "'r",
-                standardForm: "der",
-                frequency: "91.3%",
-                example: "Der Hund bellt.",
-                elisionExample: "<span class='elision-highlight'>'r</span> Hund bellt.",
-                phonetic: "[<span class='elision-highlight'>ɐ</span> hʊnt bɛlt]",
-                teachingTip: "阳性名词前der弱化为'r"
-            },
-            {
-                category: "冠词省略",
-                type: "article",
-                elisionForm: "'ne",
-                standardForm: "eine",
-                frequency: "91.3%",
-                example: "Ich habe eine Frage.",
-                elisionExample: "Ich habe <span class='elision-highlight'>'ne</span> Frage.",
-                phonetic: "[ɪç hɛbə <span class='elision-highlight'>neː</span> ˈfʁaːɡə]",
-                teachingTip: "阴性名词前eine弱化为'ne"
-            },
-            {
-                category: "冠词省略",
-                type: "article",
-                elisionForm: "'m",
-                standardForm: "dem",
-                frequency: "91.3%",
-                example: "Kaufe dem Kind ein Eis.",
-                elisionExample: "Kauf'<span class='elision-highlight'>m</span> Kind ein Eis.",
-                phonetic: "[ˈkaʊf<span class='elision-highlight'>m̩</span> kɪnt aɪn aɪs]",
-                teachingTip: "冠词在辅音后常省略首音"
-            },
-            {
-                category: "冠词省略",
-                type: "article",
-                elisionForm: "'n",
-                standardForm: "einen",
-                frequency: "91.3%",
-                example: "Ich habe einen Bruder.",
-                elisionExample: "Ich habe <span class='elision-highlight'>'n</span> Bruder.",
-                phonetic: "[ɪç hɛbə <span class='elision-highlight'>n̩</span> ˈbʁuːdɐ]",
-                teachingTip: "einen → 'n 在辅音后高频省略"
-            },
-            
-            // 词尾元音脱落组
-            {
-                category: "词尾元音脱落",
-                type: "vowel",
-                elisionForm: "geb",
-                standardForm: "geben",
-                frequency: "89.2%",
-                example: "Kannst du mir geben?",
-                elisionExample: "Kannst du mir <span class='elision-highlight'>geb</span>?",
-                phonetic: "[kanst duː miːɐ <span class='elision-highlight'>geːp</span>]",
-                teachingTip: "动词不定式强制省略词尾 -en"
-            },
-            {
-                category: "词尾元音脱落",
-                type: "vowel",
-                elisionForm: "komm",
-                standardForm: "kommen",
-                frequency: "89.2%",
-                example: "Wir kommen gleich.",
-                elisionExample: "Wir <span class='elision-highlight'>komm</span> gleich.",
-                phonetic: "[viːɐ <span class='elision-highlight'>kɔm</span> glaɪç]",
-                teachingTip: "词尾非重读-en高频脱落"
-            },
-            {
-                category: "词尾元音脱落",
-                type: "vowel",
-                elisionForm: "Haus",
-                standardForm: "Hause",
-                frequency: "89.2%",
-                example: "Ich bin zu Hause.",
-                elisionExample: "Ich bin zu <span class='elision-highlight'>Haus</span>.",
-                phonetic: "[ɪç bɪn tsuː <span class='elision-highlight'>haʊs</span>]",
-                teachingTip: "名词所有格省略 -e"
-            },
-            {
-                category: "词尾元音脱落",
-                type: "vowel",
-                elisionForm: "red",
-                standardForm: "rede",
-                frequency: "89.2%",
-                example: "Lass uns reden!",
-                elisionExample: "Lass uns <span class='elision-highlight'>red</span>!",
-                phonetic: "[las ʊns <span class='elision-highlight'>ʁeːt</span>]",
-                teachingTip: "动词词尾非重读-e高频脱落"
-            },
-            {
-                category: "词尾元音脱落",
-                type: "vowel",
-                elisionForm: "fahr'n",
-                standardForm: "fahren",
-                frequency: "89.2%",
-                example: "Wir fahren nach Berlin.",
-                elisionExample: "Wir <span class='elision-highlight'>fahr'n</span> nach Berlin.",
-                phonetic: "[viːɐ <span class='elision-highlight'>faːɐn</span> naːx bɛɐˈliːn]",
-                teachingTip: "动词词尾-en简化为-'n"
-            },
-            
-            // 跨词合并组
-            {
-                category: "跨词合并",
-                type: "crossword",
-                elisionForm: "gehts",
-                standardForm: "geht es",
-                frequency: "85.7%",
-                example: "Wie geht es dir?",
-                elisionExample: "Wie <span class='elision-highlight'>gehts</span> dir?",
-                phonetic: "[viː <span class='elision-highlight'>geːts</span> diːɐ]",
-                teachingTip: "es 在动词后必合并 (geht + es → gehts)"
-            },
-            {
-                category: "跨词合并",
-                type: "crossword",
-                elisionForm: "hamwer",
-                standardForm: "haben wir",
-                frequency: "85.7%",
-                example: "Haben wir Zeit?",
-                elisionExample: "<span class='elision-highlight'>Hamwer</span> Zeit?",
-                phonetic: "[<span class='elision-highlight'>ˈhamvɐ</span> tsaɪt]",
-                teachingTip: "代词 wir 黏着动词尾 (haben + wir → hamwer)"
-            },
-            {
-                category: "跨词合并",
-                type: "crossword",
-                elisionForm: "kannste",
-                standardForm: "kannst du",
-                frequency: "85.7%",
-                example: "Kannst du kommen?",
-                elisionExample: "<span class='elision-highlight'>Kannste</span> kommen?",
-                phonetic: "[<span class='elision-highlight'>ˈkanstə</span> ˈkɔmən]",
-                teachingTip: "du → 'ste 在动词后高频合并"
-            },
-            {
-                category: "跨词合并",
-                type: "crossword",
-                elisionForm: "sieh'ste",
-                standardForm: "siehst du",
-                frequency: "85.7%",
-                example: "Siehst du den Hund?",
-                elisionExample: "<span class='elision-highlight'>Sieh'ste</span> den Hund?",
-                phonetic: "[ziː<span class='elision-highlight'>stə</span> deːn hʊnt]",
-                teachingTip: "代词du → 'ste 在动词后高频省略"
-            },
-            {
-                category: "跨词合并",
-                type: "crossword",
-                elisionForm: "hatta",
-                standardForm: "hatte er",
-                frequency: "85.7%",
-                example: "Er hatte Hunger.",
-                elisionExample: "<span class='elision-highlight'>Hatta</span> Hunger.",
-                phonetic: "[<span class='elision-highlight'>ˈhata</span> ˈhʊŋɐ]",
-                teachingTip: "主语代词与动词高频合并"
-            },
-            {
-                category: "跨词合并",
-                type: "crossword",
-                elisionForm: "wirds",
-                standardForm: "wird es",
-                frequency: "85.7%",
-                example: "Wird es kalt?",
-                elisionExample: "<span class='elision-highlight'>Wirds</span> kalt?",
-                phonetic: "[<span class='elision-highlight'>vɪʁts</span> kalt]",
-                teachingTip: "es 在动词后高频合并"
-            },
-            
-            // 塞音弱化组
-            {
-                category: "塞音弱化",
-                type: "consonant",
-                elisionForm: "ham",
-                standardForm: "haben",
-                frequency: "80.1%",
-                example: "Wir haben Geld.",
-                elisionExample: "Wir <span class='elision-highlight'>ham</span> Geld.",
-                phonetic: "[viːɐ <span class='elision-highlight'>ham</span> gɛlt]",
-                teachingTip: "/b/ 在鼻音前必省略 (haben → ham)"
-            },
-            {
-                category: "塞音弱化",
-                type: "consonant",
-                elisionForm: "nem",
-                standardForm: "nehmen",
-                frequency: "80.1%",
-                example: "Ich nehme das.",
-                elisionExample: "Ich <span class='elision-highlight'>nem</span> das.",
-                phonetic: "[ɪç <span class='elision-highlight'>nem</span> das]",
-                teachingTip: "/h/ 在鼻音前高频省略"
-            },
-            {
-                category: "塞音弱化",
-                type: "consonant",
-                elisionForm: "find",
-                standardForm: "findet",
-                frequency: "80.1%",
-                example: "Wer findet dich?",
-                elisionExample: "Wer <span class='elision-highlight'>find</span> dich?",
-                phonetic: "[veːɐ <span class='elision-highlight'>fɪnt</span> dɪç]",
-                teachingTip: "/t/ 在流音前弱化省略"
-            },
-            {
-                category: "塞音弱化",
-                type: "consonant",
-                elisionForm: "kind",
-                standardForm: "Kind",
-                frequency: "80.1%",
-                example: "Mein Kind schläft.",
-                elisionExample: "Mein <span class='elision-highlight'>kind</span> schläft.",
-                phonetic: "[maɪn <span class='elision-highlight'>kɪn</span> ʃlɛːft]",
-                teachingTip: "/d/ 在鼻音前高频省略"
-            },
-            
-            // 否定词弱化组
-            {
-                category: "否定词弱化",
-                type: "negation",
-                elisionForm: "nich",
-                standardForm: "nicht",
-                frequency: "73.8%",
-                example: "Das ist nicht wahr.",
-                elisionExample: "Das is <span class='elision-highlight'>nich</span> wahr.",
-                phonetic: "[das ɪs <span class='elision-highlight'>nɪç</span> vaːɐ]",
-                teachingTip: "北德用 nich (nicht → nich)"
-            },
-            {
-                category: "否定词弱化",
-                type: "negation",
-                elisionForm: "net",
-                standardForm: "nicht",
-                frequency: "73.8%",
-                example: "Das ist nicht fair.",
-                elisionExample: "Des is <span class='elision-highlight'>net</span> fair.",
-                phonetic: "[dɛs ɪs <span class='elision-highlight'>nɛt</span> fɛːɐ]",
-                teachingTip: "南德用 net (nicht → net)"
-            },
-            {
-                category: "否定词弱化",
-                type: "negation",
-                elisionForm: "ken",
-                standardForm: "kein",
-                frequency: "73.8%",
-                example: "Ich habe keinen Bock.",
-                elisionExample: "Isch hab <span class='elision-highlight'>ken</span> Bock.",
-                phonetic: "[ɪʃ hap <span class='elision-highlight'>keːn</span> bɔk]",
-                teachingTip: "kein → ken 为全德通用"
-            }
-        ];
-
-        // 渲染吞音现象卡片
-        function renderElisionCards(category = 'article') {
-            const container = document.getElementById('cards-container');
-            container.innerHTML = '';
-            
-            // 根据类别过滤数据
-            let filteredData = [];
-            if (category === 'all') {
-                filteredData = [...elisionData];
-            } else {
-                filteredData = elisionData.filter(item => item.type === category);
-            }
-            
-            if (filteredData.length === 0) {
-                container.innerHTML = `
-                    <div class="loader">
-                        <i class="fas fa-info-circle"></i> 该类别下没有数据
-                    </div>
-                `;
-                return;
-            }
-            
-            // 为每个吞音现象创建卡片
-            filteredData.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <div class="card-inner">
-                        <div class="card-face card-front">
-                            <div class="elision-header">
-                                <div class="elision-name">${item.standardForm}</div>
-                                <button class="speak-btn" onclick="speakWordAndExample('${item.standardForm}', '${item.example}', event)">
-                                    <i class="fas fa-volume-up"></i>
-                                </button>
-                            </div>
-                            <div class="elision-info">
-                                <div class="info-item">
-                                    <span class="info-label">类别:</span>
-                                    <span class="info-value">${item.category}</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">频率:</span>
-                                    <span class="info-value">${item.frequency}</span>
-                                </div>
-                            </div>
-                            <div class="elision-example">
-                                ${item.example}
-                            </div>
-                        </div>
-                        <div class="card-face card-back">
-                            <div class="card-back-content">
-                                <div class="card-back-top">
-                                    <div class="elision-example-container">
-                                        ${item.elisionExample.replace(/<span class='elision-highlight'>([^<]*)<\/span>/g, (match, content) => {
-                                            // 处理带撇号的内容，将撇号包含在高亮范围内
-                                            if (content.includes("'")) {
-                                                return `<span class='elision-highlight'>${content}</span>`;
-                                            }
-                                            return match;
-                                        })}
-                                    </div>
-                                    <div class="phonetic">${item.phonetic}</div>
-                                </div>
-                                <div class="card-back-bottom">
-                                    <div class="card-hint"><i class="fas fa-sync-alt"></i> 点击翻转卡片</div>
-                                    <div class="standard-example">${item.example}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                card.addEventListener('click', function(e) {
-                    // 避免点击发音按钮时翻转卡片
-                    if (!e.target.closest('.speak-btn')) {
-                        this.classList.toggle('flipped');
-                    }
-                });
-                container.appendChild(card);
-            });
-        }
         
-        // 发音功能 - 朗读单词和例句
-        function speakWordAndExample(word, example, event) {
-            if (event) {
-                event.stopPropagation();
-            }
-            
-            if ('speechSynthesis' in window) {
-                // 停止当前正在播放的语音
-                window.speechSynthesis.cancel();
-                
-                // 获取可用的德语语音
-                const voices = window.speechSynthesis.getVoices();
-                const germanVoice = voices.find(voice => 
-                    voice.lang.startsWith('de') && 
-                    (voice.name.includes('German') || voice.name.includes('Deutsch') || voice.lang === 'de-DE')
-                );
-                
-                // 创建单词朗读
-                const wordUtterance = new SpeechSynthesisUtterance(word);
-                wordUtterance.lang = 'de-DE';
-                wordUtterance.rate = 0.9;
-                wordUtterance.pitch = 1;
-                if (germanVoice) {
-                    wordUtterance.voice = germanVoice;
-                }
-                
-                // 单词朗读完成后朗读例句
-                wordUtterance.onend = function() {
-                    setTimeout(() => {
-                        const exampleUtterance = new SpeechSynthesisUtterance(example);
-                        exampleUtterance.lang = 'de-DE';
-                        exampleUtterance.rate = 0.9;
-                        exampleUtterance.pitch = 1;
-                        if (germanVoice) {
-                            exampleUtterance.voice = germanVoice;
-                        }
-                        window.speechSynthesis.speak(exampleUtterance);
-                    }, 300); // 短暂间隔
-                };
-                
-                // 播放单词朗读
-                window.speechSynthesis.speak(wordUtterance);
-                
-                // 添加动画效果
-                if (event) {
-                    const button = event.target.closest('.speak-btn');
-                    if (button) {
-                        button.innerHTML = '<i class="fas fa-volume-up fa-beat"></i>';
-                        setTimeout(() => {
-                            button.innerHTML = '<i class="fas fa-volume-up"></i>';
-                        }, 1000);
-                    }
-                }
-            } else {
-                alert('抱歉，您的浏览器不支持语音合成功能。');
-            }
-        }
-        
-        // 导航按钮事件监听
-        document.addEventListener('DOMContentLoaded', function() {
-            renderElisionCards(); // 初始渲染所有卡片
-            
-            // 添加导航按钮事件监听器
-            const navButtons = document.querySelectorAll('.nav-btn');
-            navButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // 更新活动按钮
-                    navButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
+        <div class="cards-grid">
+            <!-- 介词宾语卡片1 -->
+            <div class="feature-card">
+                <div class="card-header">
+                    <i class="fas fa-language"></i>
+                    <h2>常用介词宾语-1</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">学习德语中最常用的介词搭配，掌握动词与介词的固定组合，提升语法准确性和表达流利度。</p>
                     
-                    // 根据选择的类别渲染卡片
-                    const category = this.getAttribute('data-category');
-                    renderElisionCards(category);
-                });
-            });
-        });
+                    <div class="card-stats">
+                        <div class="stat">
+                            <div class="stat-value">30+</div>
+                            <div class="stat-label">动词短语</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">介词分类</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">91%</div>
+                            <div class="stat-label">使用频率</div>
+                        </div>
+                    </div>
+                    
+                    <a href="B1-1.html" class="card-button">开始学习</a>
+                </div>
+            </div>
+            
+            <!-- 介词宾语卡片2 -->
+            <div class="feature-card">
+                <div class="card-header">
+                    <i class="fas fa-comments"></i>
+                    <h2>常用介词宾语-2</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">深入学习反身动词与介词的搭配，掌握三价和四价动词结构，提升复杂句式的构建能力。</p>
+                    
+                    <div class="card-stats">
+                        <div class="stat">
+                            <div class="stat-value">25+</div>
+                            <div class="stat-label">反身动词</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">搭配模式</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">87%</div>
+                            <div class="stat-label">实用价值</div>
+                        </div>
+                    </div>
+                    
+                    <a href="B1-2.html" class="card-button">开始学习</a>
+                </div>
+            </div>
+            
+            <!-- 口语吞音卡片 -->
+            <div class="feature-card">
+                <div class="card-header">
+                    <i class="fas fa-microphone-alt"></i>
+                    <h2>口语高频吞音</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">掌握德语口语中的常见吞音现象，理解母语者的发音习惯，提高听力理解和口语自然度。</p>
+                    
+                    <div class="card-stats">
+                        <div class="stat">
+                            <div class="stat-value">20+</div>
+                            <div class="stat-label">吞音规则</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">分类学习</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">95%</div>
+                            <div class="stat-label">出现频率</div>
+                        </div>
+                    </div>
+                    
+                    <a href="B1-3.html" class="card-button">开始学习</a>
+                </div>
+            </div>
+        </div>
         
-        // 禁止右键菜单
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
+        <!-- 学习特色介绍 -->
+        <div class="feature-section">
+            <h2>为什么选择我们的德语学习材料？</h2>
+            <div class="feature-content">
+                <div class="feature-text">
+                    <p>我们的德语B1词汇学习系统基于现代语言学习理论，专为中文母语者设计。每个学习模块都包含：</p>
+                    <p>• 交互式翻转卡片，强化记忆</p>
+                    <p>• 真人发音功能，改善发音</p>
+                    <p>• 语法标注系统，理解结构</p>
+                    <p>• 实用例句展示，语境学习</p>
+                    <p>• 学习进度统计，追踪效果</p>
+                    <p>所有内容由专业德语教师团队开发，符合欧标B1级别要求，帮助您高效通过德语考试，提升实际交流能力。</p>
+                </div>
+                <div class="feature-image">
+                    <img src="https://images.unsplash.com/photo-1580610447943-1bfbef5efe07?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="德语学习">
+                </div>
+            </div>
+        </div>
         
-        // 禁止键盘快捷键保存网页
-        document.addEventListener('keydown', function(e) {
-            // 禁止Ctrl+S
-            if (e.ctrlKey && e.key === 's') {
-                e.preventDefault();
-                return false;
-            }
-            // 禁止Ctrl+Shift+I (开发者工具)
-            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-                e.preventDefault();
-                return false;
-            }
-            // 禁止Ctrl+U (查看源代码)
-            if (e.ctrlKey && e.key === 'u') {
-                e.preventDefault();
-                return false;
-            }
-            // 禁止F12
-            if (e.key === 'F12') {
-                e.preventDefault();
-                return false;
-            }
-        });
-        
-        // 禁止拖拽图片
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-    </script>
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>至元德语学习中心 &copy; 2025 - 专业的德语学习平台</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">关于我们</a>
+                <a href="#" class="footer-link">联系方式</a>
+                <a href="#" class="footer-link">隐私政策</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
